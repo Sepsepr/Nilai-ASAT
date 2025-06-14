@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Nilai Asesmen</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    .card img {
+      display: block;
+      margin: 0 auto 20px;
+      width: 50px;
+    }
+    h2 {
+      text-align: center;
+      color: #002c5f;
+      margin-bottom: 5px;
+    }
+    h4 {
+      text-align: center;
+      color: #777;
+      margin-top: 0;
+    }
+    .info {
+      background: #eaf4ff;
+      padding: 10px;
+      border-left: 4px solid #007bff;
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      margin-top: 24px;
+      background-color: #002c5f;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .admin-link {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .admin-link a {
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="Icon" />
+    <h2>Hasil Asesmen Sumatif</h2>
+    <h4>Semester Genap 2025</h4>
+    <div class="info">
+      Masukkan nama lengkap dan kode akses untuk melihat hasil asesmen Anda.
+    </div>
+    <label>Nama Lengkap</label>
+    <input type="text" id="nama" placeholder="Masukkan nama lengkap Anda">
+    
+    <label>Kode Akses</label>
+    <input type="text" id="kode" placeholder="Masukkan kode akses Anda">
+
+    <small>Kode akses diberikan oleh guru mata pelajaran</small>
+
+    <button onclick="cekAkses()">Lihat Hasil Asesmen</button>
+
+    <div class="admin-link">
+      <a href="#">Login sebagai Admin</a>
+    </div>
+  </div>
+
+  <script>
+    const dataSiswa = {
+      "ADINDA ALYA YUNISYA": "x123",
+      "AHMAD REVAN MAULANA": "x124",
+      "AIRA AULIA KASIH": "x125"
+      // Tambahkan data lainnya di sini
+    };
+
+    function cekAkses() {
+      const nama = document.getElementById("nama").value.trim().toUpperCase();
+      const kode = document.getElementById("kode").value.trim();
+
+      if (dataSiswa[nama] && dataSiswa[nama] === kode) {
+        window.location.href = nama.toLowerCase().replaceAll(" ", "_") + ".html";
+      } else {
+        alert("Nama atau kode akses salah!");
+      }
+    }
+  </script>
+</body>
+</html>
